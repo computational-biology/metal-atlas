@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+	    <meta charset="UTF-8">
+	    <title>RNA Triplets</title>
+	    <link rel="stylesheet" href="css/index.css">
+      </head>
+
+      <body>
+	    <div id="allcontent"> 
+		  <div id="header" style="text-align: center;">
+			<center>
+			      <div style="background:#011c2b">
+
+				    <table>
+					  
+						<td width=80% style="text-align: center">
+
+
+						      <h1 style="color:#1c91c7; align-content: center; font-size: 40px; " > Help Center</h1>
+						      <!-- <h2 style="color:#45ce39" >A Web Treaser of Biological Information</h2>
+						      <h1 style="color:#e2c12cdc" >A Structural Molecular Biological Approach</h1>
+						      -->
+						</td>
+						
+					  </tr>
+				    </table>
+
+				    <br>
+			      </div>
+
+			</center>
+		  </div>
+		  <nav class="tabmenu">
+			<ul>
+			      <li><a href="index.html">Home</a></li>
+			      <li><a href="stdtriplet.html">Standars Triplets</a></li>
+			      <li><a href="chotriplet.html">C-H...O/N Trip</a></li>
+			      <li><a href="prototriplet.html">Protonated Trip</a></li>
+			      <li><a href="modtriplet.html">Trip of Modi Res</a></li>
+			      <li><a href="sugtriplet.html">Sug O2' Med Trip</a></li>
+			      <li><a href="singlrpdbtriplet.html">Single PDB Query</a></li>
+			      <li><a href="help.html">Help</a></li>
+
+			</ul>
+		  </nav>
+		  <div id="tableContainer">
+			<div id="tableRow">
+
+			      <div id="main">
+				    <h2>A Brief Introduction</h2>
+				    <h4>What is an RNA Triplet</h4>
+				    <p class="mainpara"> 
+				    Ribonucleic Acids (RNA) are a single chain nucleic acid sequences. To stebilize 
+				    its structures, it creates base-base interactions or base pairing. Some times one base interacts or forms
+				    base pairs with more than one bases (e.g C=G=A. here the central guanine forms a pair
+				    with C and another pair with A). In such cases we call them base triplets.
+
+				    </p>
+
+				    <h4>Why are they biologically important?</h4>
+				    <p class="mainpara">Specific interactions between nucleotide bases are extremely important for formation of various well defined structures of the different functional RNA, such as Ribosome, tRNA, etc. These specific interactions take place in the form of base pairing assisted by couple of hydrogen bonds between the two participating bases. Furthermore, base pairing in RNA is not restricted within Watson-Crick type A:U and G:C only but various non-canonical base pairs are quite often observed in the available structures of RNA. Such non-canonical base pairing may involve the Hoogsteen edge of especially the purines (where hydrogen bonds are possible using N7 atoms of the purines as acceptors) or sugar edge of the bases, also involving 2'-OH group of ribose sugars. Either of the bases of these base pairs can further specifically interact with another base of the RNA forming base triplets. Such base triplets or even higher order structures have been observed quite frequently. Non-canonical base pairing is mandatory in these base triplets. The present database attempts to provide several additonal information about the base triplets found in RNA crystal structures.
+
+				    </p>
+				    
+				    <h4>Different types Triplets</h4>
+				    <p>
+				    There are different types of triplets.
+				    </p>
+				    
+				    <h2>Some Technicalities</h2>
+				     <b>Base Pair Edge Descriptions:</b><br>
+                     <ol>
+                         <li>
+                         <b> W - </b> Watson-Crick edge (Capital W).
+                         </li>
+                         
+                         <li>
+                         <b> H - </b> Hoogsteen edge (Capital H).
+                         </li>
+                         
+                         <li>
+                         <b> S - </b> Sugar edge (Capital S).
+                         </li>
+                         
+                         <li>
+                         <b> w -  </b> Watson-Crick edge with one or more C-H...O/N type of hydrogen bond (Small w).
+                         </li>
+                         <li>
+                         <b> h -  </b> Hoogsteen edge with one or more C-H...O/N type of hydrogen bond (Small h).
+                         </li>
+                         <li>
+                         <b> s -  </b> Sugar edge with one or more C-H...O/N type of hydrogen bond (Small s).
+                         </li>
+                         
+                         <li>
+                         <b> + -  </b> Protonated Watson-Crick edge.
+                         </li>
+                         
+                         <li>
+                         <b> z -  </b> Protonated Sugar edge.
+                         </li>
+                         
+                         <li>
+                         <b> g -  </b> Protonated Hoogsteen edge (rarely found though).
+                         </li>
+                     </ol>
+                     <br><br>
+                     <b>Base Pair Orientations:</b><br>
+                     <ol>
+                        <li>
+                         <b> C -  </b> Cis Orientation.
+                         </li>
+                         
+                         <li>
+                         <b> T -  </b> Trans Orientation.
+                         </li>
+                     </ol>
+                     <br><br>
+                    
+                     
+
+                     <b>Basepairing Criteria:</b><br>
+                     <ol>
+                        <li>
+                         Bases not having coordinates of all the ring atoms (purine/pyrimidine) and
+      C1' atoms are not considered for detecting hydrogen bonds.
+                         </li>
+                         
+                         <li>
+                         At least two hydrogen bonds must exist between two bases, at least one of
+      which must be between the base moieties. Basepairs involving both 2'-OH 
+      mediated hydrogen bonds are not detected by BPFind. It considers basepairs
+      for which both the H-bonds are of C-H...O/N type, as long as one H-bond is
+      found between the base rings.
+                         </li>
+                         <li>
+                         Our databse considers a range of modified bases which are usually under the 
+      'HETATM' lines in a PDB file.
+      
+                         </li>
+                         
+                         <li>
+                         BPFind uses a cutoff distance of 3.8 angstrom between the acceptor and 
+      donor atoms, a cutoff angle of 120.0 degree for checking planarity of 
+      precursor atoms (designed carefully to accommodate more labile basepairs) 
+      and a cutoff E-value of 1.8 to signify the overall distortion and maintain
+      a good basepairing geometry.  This file contains several columns, their
+      descriptions are given on top header starting "#"
+                         </li>
+                         
+                         
+                         <li>
+                         BPFind uses a more stringent option for protonated basepair options in 
+      order to avoid false positives. It considers cutoff angle of 150.0 degree
+      for protonated basepairs.
+                         </li>
+                         <li>
+                         BPFind allows more flexibility if 2'-OH of the ribose sugar moiety is 
+      involved in hydrogen bonding, the cutoff angle considered is 100.0 degree.
+                         </li>
+                         
+                         <li>
+                         In case of structures with multiple occupancy of some atoms, the positions with 
+      highest occupancy is considered. If the positions of highest occupancy is 
+      less than 0.5, the atomic position is ignored. When two atoms have identical 
+      occupancy of 0.5, the first atomic position is considered.
+                         </li>
+                     </ol>
+			      </div>
+
+			</div>
+		  </div>
+		  <div id="footer">
+			For technical help, please contact roy.parthajit@gmail.com<br>
+			Maintained through github.
+		  </div>
+	    </div>
+	    <div id="myModal" class="modal">
+
+		  <!-- Modal content starts -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h4 id="modalheader">Please confirm which type do you want?</h2>
+			</div>
+			<div class="modal-body">
+			      <p id="modalbody">If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
+			</div>
+			<div class="modal-footer">
+			      <h5>Modal Footer</h3>
+			</div>
+		  </div>
+		  <!-- Modal content ends -->
+
+	    </div>
+	    <script src="script/styles.js"></script>
+	    <script src="script/allt1.js"></script>
+	    <script src="script/triplet.js"></script>
+	    <script type="text/javascript" src="script/JSmol.min.js"></script>
+	    <script  src="script/jmolrun.js"></script>
+      </body>
+</html>

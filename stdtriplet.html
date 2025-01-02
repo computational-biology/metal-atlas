@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+	    <meta charset="UTF-8">
+	    <title></title>
+	    <link rel="stylesheet" href="css/stdtriplet.css">
+      </head>
+
+      <body>
+	    <div id="allcontent"> 
+		  <div id="header" style="text-align: center;">
+			<h1>Metal-RNA Interaction Atlas</h1>
+		  </div>
+		  <nav class="tabmenu">
+			<ul>
+			      <li><a href="index.html">Home</a></li>
+			      <li class="selected" ><a href="#">Metal Atlas</a></li>
+			      <li><a href="help.html">Help</a></li>
+
+			</ul>
+		  </nav>
+		  <div id="tableContainer">
+			<div id="tableRow">
+			      <div id="sidebar">
+			         <b>Enter Your Query Here:</b>
+				    <form onSubmit="show_trip_details_std('STD'); return false;" style="background-color: #dfdbdb">
+					  <label for="accn">Accn No  :</label>
+					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  <label for="edge1">Metal:</label>
+					  <select id="metal">
+						  <option value="ALL">All Metals</option>
+						  <option value="AL">Al</option>
+						  <option value="AU">Au</option>
+						  <option value="CA">Ca</option>
+						  <option value="CD">Cd</option>
+						  <option value="CO">Co</option>
+						  <option value="K">K</option>
+						  <option value="LI">Li</option>
+						  <option value="MG">Mg</option>
+						  <option value="MN">Mn</option>
+						  <option value="NA">Na</option>
+						  <option value="SC">Sc</option>
+						  <option value="SR">Sr</option>
+						  <option value="ZN">Zn</option>
+					  </select>
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  
+
+					  
+						
+						<label for="edge1">Basepair:</label>
+						<select id="edge1">
+						      <option value="ALL">All Base Pirs</option>
+						      <option value="W:W">WW</option>
+						      <option value="W:H">WH</option>
+						      <option value="W:S">WS</option>
+						      <option value="H:W">HW</option>
+						      <option value="H:H">HH</option>
+						      <option value="H:S">HS</option>
+						      <option value="S:W">SW</option>
+						      <option value="S:H">SH</option>
+						      <option value="S:S">SS</option>
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<label for="orien">Orientation:</label>
+						<select id="orien">
+						      <option value="ALL">All Orientation</option>
+						      <option value="CIS">Cis</option>
+							<option value="TRANS">Trans</option>
+						</select>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<label for="attaching_base">Attaching Base</label>
+							<select id="attaching_base">
+								<option value="ALL">Any Base</option>
+								<option value="A">Adenine</option>
+								<option value="G">Guanine</option>
+								<option value="U">Uracil</option>
+								<option value="C">Cytosine</option>
+							</select>
+							<br><br>
+							<label for="otherbase">Other Base</label>
+							<select id="otherbase">
+								<option value="ALL">Any Base</option>
+								<option value="A">Adenine</option>
+								<option value="G">Guanine</option>
+								<option value="U">Uracil</option>
+								<option value="C">Cytosine</option>
+							</select>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<label for="position">Attaching position:</label>
+							<select id="position">
+								<option value="ALL">Any Posion</option>
+								<option value="NUC">Base Atom</option>
+								<option value="SUG">Sugar Atom</option>
+								<option value="PHP">Phosphate Atom</option>
+							</select>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<label for="modified">Allow Modified resudue:</label>
+							<select id="modified">
+								<option value="ALL">Std and Modified</option>
+								<option value="NUC">Standard Only</option>
+								<option value="SUG">Modified Only</option>
+							</select>
+				
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
+				
+					  
+			
+					  <input type="submit" style="background-color: rgb(28, 152, 190); color: white; font-size: 16px;">
+				    </form>
+
+				</div>
+			</div>
+				<div id="tableRow">
+					<div id="main" style="height:400px">
+						<center>
+							<h2>The result display area</h2>
+							<p id="jsontest" style="font-family:'Lucida Console', monospace"></p>
+						</center>
+
+					</div>
+				</div>
+			      
+			
+		  </div>
+		  <div id="footer">
+			Sit officiis vel ipsum soluta error. Voluptas aliquam ducimus aspernatur itaque dolor Laudantium tenetur eum voluptas sit quo Ex id maxime saepe tenetur exercitationem, nostrum error Illo commodi eum consequuntur.
+		  </div>
+	    </div>
+	    <div id="myModal" class="modal">
+
+		  <!-- Modal content starts -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h4 id="modalheader">Please confirm which type do you want?</h2>
+			</div>
+			<div class="modal-body">
+			      <p id="modalbody">If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
+			</div>
+			<div class="modal-footer">
+			      <h5>Modal Footer</h3>
+			</div>
+		  </div>
+		  <!-- Modal content ends -->
+
+	    </div>
+	    <script src="script/styles.js"></script>
+	    <script src="script/allt1.js"></script>
+	    <script src="script/triplet.js"></script>
+	    <script type="text/javascript" src="script/JSmol.min.js"></script>
+	    <script  src="script/jmolrun.js"></script>
+      </body>
+</html>
