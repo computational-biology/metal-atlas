@@ -23,7 +23,7 @@
 			<div id="tableRow">
 			      <div id="sidebar">
 			         <b>Enter Your Query Here:</b>
-				    <form onSubmit="show_trip_details_std('STD'); return false;" style="background-color: #dfdbdb">
+				    <form onSubmit="generate_table_container(); return false;" style="background-color: #dfdbdb">
 					  <label for="accn">Accn No  :</label>
 					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -120,8 +120,10 @@
 					<div id="main" style="height:400px">
 						<center>
 							<h2>The result display area</h2>
-							<p id="jsontest" style="font-family:'Lucida Console', monospace"></p>
-						</center>
+							<div id="table-container">
+
+
+							</div>
 
 					</div>
 				</div>
@@ -151,7 +153,7 @@
 
 	    </div>
 	    <script src="script/styles.js"></script>
-	    <script src="script/allt1.js"></script>
+	    <script src="script/mg.js"></script>
 	    <script src="script/triplet.js"></script>
 	    <script type="text/javascript" src="script/JSmol.min.js"></script>
 	    <script  src="script/jmolrun.js"></script>
