@@ -1,9 +1,61 @@
 
 obj1 = JSON.stringify(MG);
 
-var data = JSON.parse(obj1);
+var global_metal_data = JSON.parse(obj1);
+var  global_data = [];
+var global_count_data = [];
+
+function filterData() {
+  // Get input values from HTML fields
+  const pdbidInput = document.getElementById("accn").value;
+  const metalInput = document.getElementById("metal").value;
+  const positionInput = document.getElementById("position").value;
+  // Add more fields as needed
+
+  // Filter data based on input values
+  global_data = global_metal_data.filter(item =>
+      (!pdbidInput || pdbidInput === "ALL" ||item.pdbid === pdbidInput) &&
+      (!metalInput || metalInput === "ALL" || item.metal === metalInput) &&
+      (!positionInput || positionInput === "ALL" || item.position === positionInput)
+      // Add more conditions as needed
+  );
+  
+  // Store the filtered data in another array
+  console.log("Filtered Data:", global_data);
+
+  // Optionally, display the filtered data in the HTML
+  //const resultContainer = document.getElementById("result");
+  //resultContainer.textContent = JSON.stringify(filteredData, null, 2);
+   global_count_data = countUniqueValuesPerColumn(global_data);
+}
+
+
 var global_download_data = "";
 var global_download_data_header = "accn, trp, res1, bp1 ,res2, bp2 ,res2,   res1_detail  , res1_detail  , res1_detail\n";
+
+
+const global_position_pie_data = [0, 0, 0];
+const global_attaching_nuc_pie_data = [0, 0, 0, 0];
+
+function countUniqueValuesPerColumn() {
+  const uniqueCounts = {};
+
+  // Iterate through each row
+  global_data.forEach(row => {
+      Object.entries(row).forEach(([column, value]) => {
+          // Initialize the column if not already present
+          if (!uniqueCounts[column]) {
+              uniqueCounts[column] = {};
+          }
+
+          // Increment the count for the specific value
+          uniqueCounts[column][value] = (uniqueCounts[column][value] || 0) + 1;
+      });
+  });
+
+  return uniqueCounts;
+}
+
 
 //const isUpperCase = (string) => /^[A-Z]*$/.test(string);
 
@@ -75,7 +127,7 @@ function generateTable(data, headers, keys) {
   table.appendChild(headerRow);
 
   // Add data rows
-  data.forEach(item => {
+  global_data.forEach(item => {
     const row = document.createElement("tr");
     keys.forEach(key => {
       const td = document.createElement("td");
@@ -280,3 +332,69 @@ function add_lintener_to_download_button(){
             URL.revokeObjectURL(url);
         });
       }
+
+
+
+      function gen_position_pie_chart(canvas, column, chart_type, title){
+        // Get the canvas element
+        const ctx = document.getElementById(canvas).getContext('2d');
+    
+        // Data for the chart
+        const chart_data = {
+          labels:  Object.keys(global_count_data[column]),
+          datasets:[ {
+            data :  Object.values(global_count_data[column])
+           }
+          ]
+
+        };
+    
+        // Configuration for the chart
+        const config = {
+          type: chart_type, // Chart type (e.g., 'bar', 'line', 'pie', etc.)
+          data: chart_data,
+          legend: "abc",
+          options: {
+            responsive: false,
+            maintainAspectRatio: false, // Allow independent width and height
+            plugins: {
+              legend: {
+                position: 'right', // Place legend on the right
+              },
+              title: {
+                display: true,
+                text: title,
+                position: 'bottom', // Place title at the bottom
+              }
+            }
+            /*scales: {
+              y: {
+                beginAtZero: true // Y-axis starts at 0
+              }
+            }*/
+          }
+        };
+
+        // Create and render the chart
+
+
+        myChart = new Chart(ctx, config);
+    }
+    
+    function display_all_charts(){
+      filterData();
+      const cells = document.querySelectorAll("td.chart");
+
+            // Loop through and add border to each cell
+            cells.forEach(cell => {
+                cell.style.border = "1px solid red"; // Add red border
+            });
+      gen_position_pie_chart("pos_pie_chart", "position", "pie", "Attaching location");
+      gen_position_pie_chart("pos_attaching_base_chart", "attaching_nuc", "pie", "Attaching residue preference");
+      gen_position_pie_chart("pos_attaching_atom_chart", "attaching_atom", "bar", "Attaching atom preference");
+      gen_position_pie_chart("pos_orientation_chart", "orien", "pie", "Attaching orientation preference");
+      gen_position_pie_chart("pos_link_chart", "link", "pie", "base pair number of nuc attached");
+      gen_position_pie_chart("pos_edge_chart", "edge1", "bar", "base pair edge preference");
+    }
+
+

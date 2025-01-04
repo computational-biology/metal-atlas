@@ -23,7 +23,7 @@
 			<div id="tableRow">
 			      <div id="sidebar" style="background-color: #f1e9e9">
 			         <b>Enter Your Query Here:</b>
-				    <form onSubmit="generate_table_container(); return false;" style="background-color:  #f1e9e9"">
+				    <form onSubmit="display_all_charts(); return false;" style="background-color:  #f1e9e9"">
 					  <label for="accn">Accn No  :</label>
 					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,8 +99,8 @@
 							<label for="modified">Allow Modified resudue:</label>
 							<select id="modified">
 								<option value="ALL">Std and Modified</option>
-								<option value="NUC">Standard Only</option>
-								<option value="SUG">Modified Only</option>
+								<option value="STD">Standard Only</option>
+								<option value="MOD">Modified Only</option>
 							</select>
 				
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -120,10 +120,45 @@
 					<div id="main" style="height:400px">
 						<center>
 							<h4>The result display area</h4>
-							<div id="table-container">
+							</script>
+							<style>
+								#pos_pie_chart {
+									width: 300px; /* Fixed width */
+									height: 150px; /* Fixed height */
+								}
+							</style>
+							<table style="border:none">
+								<tr >
+										<td style="border:none" class="chart">
+												<canvas id="pos_pie_chart"></canvas>
+											</td>
+											<td style="border:none" class="chart">
+												<canvas id="pos_attaching_base_chart"></canvas>
+											</td>
+											<td style="border:none" class="chart">
+												<canvas id="pos_attaching_atom_chart"></canvas>
+											</td>
+								</tr>
+								<tr>
+										<td style="border:none" class="chart">
+												<canvas id="pos_orientation_chart"></canvas>
+											</td>
+											<td style="border:none" class="chart">
+													<canvas id="pos_link_chart"></canvas>
+												</td>
+											<td style="border:none" class="chart">
+													<canvas id="pos_edge_chart"></canvas>
+												</td>
 
+											
+											
+								</tr>
+								
+							</table>
+	
+	
 
-							</div>
+  
 
 					</div>
 				</div>
@@ -154,8 +189,8 @@
 	    </div>
 	    <script src="script/styles.js"></script>
 	    <script src="script/mg.js"></script>
-	    <script src="script/triplet.js"></script>
-	    <script type="text/javascript" src="script/JSmol.min.js"></script>
-	    <script  src="script/jmolrun.js"></script>
+			<script src="script/triplet.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
       </body>
 </html>
