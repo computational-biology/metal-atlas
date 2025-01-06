@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+	    <meta charset="UTF-8">
+	    <title>RNA Triplets</title>
+	    <link rel="stylesheet" href="css/index.css">
+      </head>
+
+      <body>
+	    <div id="allcontent"> 
+		  <div id="header" style="text-align: center;">
+			<center>
+			      <div style="background:#ffffff">
+
+				    <table>
+					  <tr>
+						<td width=10% style="justify-content: left">
+						      <img src="img/image2.png" alt="" width="200" height="200" style="vertical-align:middle">
+						</td>
+						<td width=80% style="text-align: center">
+
+
+						      <h1 style="color:#024666; align-content: center; font-size: 40px; " > Metal-RNA Interaction Atlas</h1>
+						      <!-- <h2 style="color:#45ce39" >A Web Treaser of Biological Information</h2>
+						      --><h1 style="color:#972213dc" >A Structural Molecular Biological Approach</h1>
+						</td>
+						<td width=10% style="justify-content: right">
+
+
+						      <img src="img/image1.png" alt="" width="200" height="200" style="vertical-align:middle">
+						</td>
+					  </tr>
+				    </table>
+
+				    <br>
+			      </div>
+
+			</center>
+		  </div>
+		  <nav class="tabmenu">
+			<ul>
+			      <li><a href="#">Home</a></li>
+			      <li><a href="stdtriplet.html">Metal Atlas</a></li>
+			      <li><a href="help.html">Help</a></li>
+			</ul>
+		  </nav>
+		  <div id="tableContainer">
+			<div id="tableRow">
+
+			      <div id="main">
+				    <h2>A Brief Introduction</h2>
+				    <h4>What is an RNA Triplet</h4>
+				    <p class="mainpara"> 
+				    Ribonucleic Acids (RNA) are a single chain nucleic acid sequences. To stebilize 
+				    its structures, it creates base-base interactions or base pairing. Some times one base interacts or forms
+				    base pairs with more than one bases (e.g C=G=A. here the central guanine forms a pair
+				    with C and another pair with A). In such cases we call them base triplets. This web server provides a dataset of all such triplets in the RNA sets. 
+
+				    </p>
+
+				    <h2>Citation</h2>
+				    <p class="mainpara"> If you are using the dataset/datasets of this website then please cite the following papers.
+				    
+				    </p>
+				    <p class="mainpara">
+				    <ul>
+				      <li><b>Parthajit Roy, Dhananjay Bhattacharyya</b>, <i>Contact networks in RNA: a structural bioinformatics study with a new tool.</i><br> Journal of Computer Aided Molecular Design, 
+				      36(2):131-140, Feb 2022.<br> doi: 10.1007/s10822-021-00438-x. Epub 2022 Jan 21. PMID: 35059942.
+				      </li>
+			
+					 </ul>
+					</p>
+					<h2>Developers</h2>
+				    <p class="mainpara"> This site is maintained by,
+				    <ol>
+				      <li><b>Dr. Parthajit Roy</b>, Assistant Professor, Dept. of Computer Science, The University of Burdwan<br>
+				      email: proy@cs.buruniv.ac.in
+				      </li>
+				      <li>
+				    <b>Prof. Dhananjay Bhattacharyya</b>, Former professor, Computational Science Division, Saha Institute of Nucleur Physics, Koklaka<br>
+				    email: dhananjay.bhattacharyya.retd@saha.ac.in
+				          
+					 </ol>
+				    </p>
+			      </div>
+
+			</div>
+		  </div>
+		  <div id="footer">
+			For technical help, please contact roy.parthajit@gmail.com<br>
+			Maintained through github.
+		  </div>
+	    </div>
+	    <div id="myModal" class="modal">
+
+		  <!-- Modal content starts -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h4 id="modalheader">Please confirm which type do you want?</h2>
+			</div>
+			<div class="modal-body">
+			      <p id="modalbody">If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
+			</div>
+			<div class="modal-footer">
+			      <h5>Modal Footer</h3>
+			</div>
+		  </div>
+		  <!-- Modal content ends -->
+
+	    </div>
+	    <script src="script/styles.js"></script>
+	    <script src="script/allt1.js"></script>
+	    <script src="script/triplet.js"></script>
+	    <script type="text/javascript" src="script/JSmol.min.js"></script>
+	    <script  src="script/jmolrun.js"></script>
+      </body>
+</html>
