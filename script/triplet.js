@@ -699,10 +699,11 @@ function display_all_charts() {
   
   global_chart1 = gen_position_pie_chart("pos_pie_chart", "position", "pie", "Attaching location");
   global_chart2 = gen_position_pie_chart("pos_attaching_base_chart", "attaching_nuc", "pie", "Attaching residue preference");
-  global_chart3 = gen_position_pie_chart("pos_attaching_atom_chart", "attaching_atom", "bar", "Attaching atom preference");
+  global_chart3 = gen_position_pie_chart("pos_attaching_atom_chart", "attaching_atom", "pie", "Attaching atom preference");
   global_chart4 = gen_position_pie_chart("pos_orientation_chart", "orien", "pie", "Attaching orientation preference");
-  global_chart5 = gen_position_pie_chart("pos_link_chart", "link", "pie", "base pair number of nuc attached");
-  global_chart6 = gen_position_pie_chart("pos_edge_chart", "edge1", "bar", "base pair edge preference");
+  global_chart5 = gen_position_pie_chart("pos_link_chart", "link", "pie", "Number of valency found");
+  global_chart6 = gen_position_pie_chart("pos_edge_chart", "edge1", "pie", "base pair edge preference");
+  //global_chart7 = gen_position_pie_chart("pos_edge_chart", "edge1", "bar", "base pair edge preference");
   
 }
 
