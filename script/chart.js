@@ -1,5 +1,5 @@
 
-obj1 = JSON.stringify(MG);
+obj1 = JSON.stringify(metal);
 
 var data = JSON.parse(obj1);
 var global_download_data = "";

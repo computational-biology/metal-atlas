@@ -33,7 +33,7 @@ div#tableRow {
       background:#dfdbdb;
       font-size: 105%;
       padding: 5px;
-      widows: 1200px;
+      width: 1200px;
 }
 
 
@@ -47,10 +47,10 @@ div#tableRow {
 }
 
 #header {
-      background-color: #dfdbdb;
+      background-color: #ffffff;
       margin: 10px 10px 0px 10px;
       height: 50px;
-      color: #01383f;
+      color: #096c79;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -83,6 +83,8 @@ form label, legend{
     font-size: 80%;
     color: black;
 }
+
+
 
 nav {
       font-size: 80%;
@@ -174,7 +176,7 @@ form {
 
 .modal-body {
   padding: 2px 16px;
-  color: efe5d0;
+  color: #efe5d0;
 }
 
 .modal-footer {
