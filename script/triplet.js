@@ -1,9 +1,16 @@
 
 obj1 = JSON.stringify(metal);
 
-var global_metal_data = JSON.parse(obj1);
+const global_metal_data = JSON.parse(obj1);
 var global_data = [];
 var global_count_data = [];
+
+  let global_chart1 = null;
+  let global_chart2 = null;
+  let global_chart3 = null;
+  let global_chart4 = null;
+  let global_chart5 = null;
+  let global_chart6 = null;
 
 const gua_var_names=[
   "G",
@@ -265,6 +272,8 @@ function filterData() {
   } else {
     edge2 = "ALL";
   }
+  console.log(edge1);
+  console.log(edge2);
 
 
   // Add more fields as needed
@@ -600,7 +609,19 @@ function add_lintener_to_download_button() {
 
 function gen_position_pie_chart(canvas, column, chart_type, title) {
   // Get the canvas element
+/*  const canvas1 = document.getElementById(canvas);
+  if (canvas1) {
+    canvas1.remove();
+    console.log("Canvas deleted successfully.");
+  } */
   const ctx = document.getElementById(canvas).getContext('2d');
+  console.log(global_data.length);
+  if(global_data.length === 0){
+    document.getElementById(canvas).innerHTML = "<h4>No Data Fetchet by your Query</h4>";
+
+    return;
+  }
+  
 
   // Data for the chart
   const chart_data = {
@@ -641,7 +662,8 @@ function gen_position_pie_chart(canvas, column, chart_type, title) {
   // Create and render the chart
 
 
-  myChart = new Chart(ctx, config);
+  chart_var = new Chart(ctx, config);
+  return chart_var;
 }
 
 function display_all_charts() {
@@ -652,12 +674,36 @@ function display_all_charts() {
   cells.forEach(cell => {
     cell.style.border = "1px solid red"; // Add red border
   });
-  gen_position_pie_chart("pos_pie_chart", "position", "pie", "Attaching location");
-  gen_position_pie_chart("pos_attaching_base_chart", "attaching_nuc", "pie", "Attaching residue preference");
-  gen_position_pie_chart("pos_attaching_atom_chart", "attaching_atom", "bar", "Attaching atom preference");
-  gen_position_pie_chart("pos_orientation_chart", "orien", "pie", "Attaching orientation preference");
-  gen_position_pie_chart("pos_link_chart", "link", "pie", "base pair number of nuc attached");
-  gen_position_pie_chart("pos_edge_chart", "edge1", "bar", "base pair edge preference");
+
+
+  
+
+  if (global_chart1) {
+    global_chart1.destroy(); // Destroy the existing chart
+  }
+  if (global_chart2) {
+    global_chart2.destroy(); // Destroy the existing chart
+  }
+  if (global_chart3) {
+    global_chart3.destroy(); // Destroy the existing chart
+  }
+  if (global_chart4) {
+    global_chart4.destroy(); // Destroy the existing chart
+  }
+  if (global_chart5) {
+    global_chart5.destroy(); // Destroy the existing chart
+  }
+  if (global_chart6) {
+    global_chart6.destroy(); // Destroy the existing chart
+  }
+  
+  global_chart1 = gen_position_pie_chart("pos_pie_chart", "position", "pie", "Attaching location");
+  global_chart2 = gen_position_pie_chart("pos_attaching_base_chart", "attaching_nuc", "pie", "Attaching residue preference");
+  global_chart3 = gen_position_pie_chart("pos_attaching_atom_chart", "attaching_atom", "bar", "Attaching atom preference");
+  global_chart4 = gen_position_pie_chart("pos_orientation_chart", "orien", "pie", "Attaching orientation preference");
+  global_chart5 = gen_position_pie_chart("pos_link_chart", "link", "pie", "base pair number of nuc attached");
+  global_chart6 = gen_position_pie_chart("pos_edge_chart", "edge1", "bar", "base pair edge preference");
+  
 }
 
 
